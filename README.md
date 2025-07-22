@@ -19,7 +19,7 @@
 [releases]: https://github.com/PiotrMachowski/Home-Assistant-custom-components-Tauron-AMIplus/releases
 [downloads_total_shield]: https://img.shields.io/github/downloads/PiotrMachowski/Home-Assistant-custom-components-Tauron-AMIplus/total
 
-[installations_shield]: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fanalytics.home-assistant.io%2Fcustom_integrations.json&query=%24.tauron_amiplus.total&style=popout&color=41bdf5&label=analytics
+[installations_shield]: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fanalytics.home-assistant.io%2Fcustom_integrations.json&query=%24.tauron_amiplus_haj.total&style=popout&color=41bdf5&label=analytics
 
 
 # Tauron AMIplus sensor
@@ -34,7 +34,7 @@ To configure this integration go to: _Configuration_ -> _Integrations_ -> _Add i
 
 You can also use following [My Home Assistant](http://my.home-assistant.io/) link:
 
-[![Open your Home Assistant instance and start setting up a new integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=tauron_amiplus)
+[![Open your Home Assistant instance and start setting up a new integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=tauron_amiplus_haj)
 
 ### Manual - yaml
 
@@ -76,11 +76,11 @@ You can also use following [My Home Assistant](http://my.home-assistant.io/) lin
 
 ```
 sensor:
-  - platform: tauron_amiplus
+  - platform: tauron_amiplus_haj
     name: Tauron AMIPlus
-    username: !secret tauron_amiplus.username
-    password: !secret tauron_amiplus.password
-    energy_meter_id: !secret tauron_amiplus.energy_meter_id
+    username: !secret tauron_amiplus_haj.username
+    password: !secret tauron_amiplus_haj.password
+    energy_meter_id: !secret tauron_amiplus_haj.energy_meter_id
     monitored_variables:
       - consumption_reading
       - consumption_daily
@@ -118,13 +118,13 @@ sensor:
  
 ### Manual
 
-Download [*tauron_amiplus.zip*](https://github.com/PiotrMachowski/Home-Assistant-custom-components-Tauron-AMIplus/releases/latest/download/tauron_amiplus.zip) and extract its contents to `config/custom_components/tauron_amiplus` directory:
+Download [*tauron_amiplus_haj.zip*](https://github.com/PiotrMachowski/Home-Assistant-custom-components-Tauron-AMIplus/releases/latest/download/tauron_amiplus_haj.zip) and extract its contents to `config/custom_components/tauron_amiplus_haj` directory:
 ```bash
-mkdir -p custom_components/tauron_amiplus
-cd custom_components/tauron_amiplus
-wget https://github.com/PiotrMachowski/Home-Assistant-custom-components-Tauron-AMIplus/releases/latest/download/tauron_amiplus.zip
-unzip tauron_amiplus.zip
-rm tauron_amiplus.zip
+mkdir -p custom_components/tauron_amiplus_haj
+cd custom_components/tauron_amiplus_haj
+wget https://github.com/PiotrMachowski/Home-Assistant-custom-components-Tauron-AMIplus/releases/latest/download/tauron_amiplus_haj.zip
+unzip tauron_amiplus_haj.zip
+rm tauron_amiplus_haj.zip
 ```
 
 Then restart Home Assistant before applying configuration file changes.
@@ -142,7 +142,7 @@ Then restart Home Assistant before applying configuration file changes.
   
 * **How to fix missing data in statistics/Energy dashboard?**
 
-  Once the data appears on [eLicznik website](https://elicznik.tauron-dystrybucja.pl) can fill such gaps using `tauron_amiplus.download_statistics` service.
+  Once the data appears on [eLicznik website](https://elicznik.tauron-dystrybucja.pl) can fill such gaps using `tauron_amiplus_haj.download_statistics` service.
 
 * **When does this integration update data?**
 
@@ -171,9 +171,9 @@ Then restart Home Assistant before applying configuration file changes.
           device_class: energy
           unique_id: tauron_energy_bank
           icon: mdi:home-battery-outline
-          state: "{{ (states('input_number.initial_energy_bank') | float(0) + states('sensor.tauron_amiplus_123_yearly_energy_generation') | float(0) * 0.8 - states('sensor.tauron_amiplus_123_yearly_energy_consumption') | float(0)) | round(3) }}"
+          state: "{{ (states('input_number.initial_energy_bank') | float(0) + states('sensor.tauron_amiplus_haj_123_yearly_energy_generation') | float(0) * 0.8 - states('sensor.tauron_amiplus_haj_123_yearly_energy_consumption') | float(0)) | round(3) }}"
           unit_of_measurement: "kWh"
-          availability: "{{ states('sensor.tauron_amiplus_123_yearly_energy_generation') | is_number and states('sensor.tauron_amiplus_123_yearly_energy_consumption') | is_number }}"
+          availability: "{{ states('sensor.tauron_amiplus_haj_123_yearly_energy_generation') | is_number and states('sensor.tauron_amiplus_haj_123_yearly_energy_consumption') | is_number }}"
   ```
 
 
