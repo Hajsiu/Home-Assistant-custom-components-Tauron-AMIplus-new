@@ -9,7 +9,7 @@ download_statistics:
       selector:
         device:
           filter:
-            - integration: tauron_amiplus
+            - integration: tauron_amiplus_haj
     start_date:
       name: Start date
       description: Start date of statistics to download.

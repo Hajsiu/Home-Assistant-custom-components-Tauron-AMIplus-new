@@ -1,8 +1,8 @@
 {
-  "name": "Tauron AMIplus",
+  "name": "Tauron AMIplus Haj",
   "render_readme": true,
   "zip_release": true,
-  "filename": "tauron_amiplus.zip",
+  "filename": "tauron_amiplus_haj.zip",
   "country": "PL",
   "homeassistant": "2022.12.0"
 }

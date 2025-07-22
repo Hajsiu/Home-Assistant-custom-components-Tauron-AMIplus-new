@@ -5,7 +5,7 @@ from homeassistant.components.sensor import SensorStateClass
 from homeassistant.const import Platform
 
 PLATFORMS = [Platform.SENSOR]
-DOMAIN = "tauron_amiplus"
+DOMAIN = "tauron_amiplus_haj"
 STATISTICS_DOMAIN = "tauron_importer"
 DEFAULT_NAME = "Tauron AMIplus"
 DATA_TAURON_CLIENT = "data_client"
