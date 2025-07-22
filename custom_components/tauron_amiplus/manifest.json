@@ -1,6 +1,6 @@
 {
-  "domain": "tauron_amiplus",
-  "name": "Tauron AMIplus",
+  "domain": "tauron_amiplus_haj",
+  "name": "Tauron AMIplus Haj Ver",
   "codeowners": ["@Hajsiu"],
   "config_flow": true,
   "dependencies": ["recorder"],
